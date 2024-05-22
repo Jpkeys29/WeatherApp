@@ -43,10 +43,32 @@ body {
 
 .search-bar {
   display: flex;
+  gap: 0.6rem;
   justify-content: center;
-  margin: 0;
-  padding: 2px;
+  padding: 10px;
+  padding-bottom: 12px;
   background-color: #0077b6;
+}
+
+.search-bar input {
+  display: flex;
+  text-align: center;
+  background-color: #e5d8d8;
+  border-radius: 10px;
+  height: 1.8rem;
+  width: 15rem;
+  border: none;
+
+}
+
+.search-bar button {
+  background-color:#00b4d8;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 6px;
+  cursor: pointer;
+  
 
 }
 
