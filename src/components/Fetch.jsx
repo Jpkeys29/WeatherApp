@@ -20,7 +20,6 @@ const Fetch = () => {
         <ul>
             <li>{clima.location?.name}</li>
             <li>{clima.current.condition.text}</li>
-            {/* <li>{clima.current.feelslike_f}</li> */}
         </ul>
     )
 }
