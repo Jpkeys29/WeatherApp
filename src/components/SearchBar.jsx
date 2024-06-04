@@ -1,13 +1,15 @@
+import { Box, Flex, Text } from "@chakra-ui/react";
 
-export default function SearchBar({location, handleLocation}) {
-    
+export default function SearchBar() {
 
-    return(
-        <div className="search-bar">
-        <input 
-        placeholder="Search City or Zipcode"
-        />
-        <button input='text' value={location} onChange={handleLocation} >Search</button>
-        </div>
+
+    return (
+        <Flex justify='center' alignItems='center' bg='#00b4d8' p={3}>
+            <Text bg='#e5d8d8'>
+                <input
+                    placeholder="Search City or Zipcode"
+                />
+            </Text>
+        </Flex>
     )
 }

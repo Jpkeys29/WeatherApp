@@ -1,8 +1,11 @@
+import { Box, Text } from "@chakra-ui/react";
 
-export default function() {
+export default function () {
     return (
-        <div className="box">
-            <h3>Forecast</h3>
-        </div>
+        <Box bg='#00b4d8'>
+            <Text color='white' fontSize='1.4rem'>
+                <h3>Forecast</h3>
+            </Text>
+        </Box>
     )
 }

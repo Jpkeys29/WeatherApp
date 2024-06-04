@@ -7,16 +7,16 @@ import WeatherCard from './components/WeatherCard'
 import { Box } from '@chakra-ui/react';
 
 function App() {
-  
+
   return (
-    <Box bg='#80daea'>
-    <Header />
-    <SearchBar />
-    <MainContent>
-      <WeatherCard />
-      <Forecast />
-    </MainContent>  
-    </Box>
+    <>
+      <Header />
+      <SearchBar />
+      <MainContent>
+        <WeatherCard />
+        <Forecast />
+      </MainContent>
+    </>
   )
 }
 
