@@ -1,11 +1,12 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
+import { wrap } from "framer-motion";
 
 export default function MainContent({ children }) {
     return (
-        <Box bg='#80daea'>
-            <Flex justify="space-around"> 
-                {children}
-            </Flex>
-        </Box>
+        <SimpleGrid columns={2} spacing={5} p={10} bg='#80daea' height='950px'>
+            {children}
+        </SimpleGrid>
+            // <Flex justify="space-around" '  p={6} wrap={wrap} gap={4}> 
+            // </Flex>
     )
 }

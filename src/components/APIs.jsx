@@ -24,7 +24,7 @@ function WeatherDisplay() {
       }
     };
 
-    fetchWeatherData();
+    // fetchWeatherData();
   }, [location]); // Re-fetch data when location changes
 
   // if(!weatherData) {
@@ -33,6 +33,7 @@ function WeatherDisplay() {
 
   return (
     <div>
+      <h2>New York</h2>
       <h2>{weatherData.location?.name}</h2>
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
