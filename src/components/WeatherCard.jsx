@@ -4,16 +4,16 @@ import WeatherDisplay from './APIs';
 
 export default function WeatherCard() {
     return (
-        <Card bg='#00b4d8' textAlign='center' textColor='white' borderTop='8px' borderColor='white.300'>
-            <CardHeader>
-                <Text>Weather Today</Text>
+        <Card bg='#00b4d8' borderTop='8px' borderColor='white' h='90vh'>
+            <CardHeader textAlign='center'>
+                <Text fontSize='40px' color='white'>Today</Text>
             </CardHeader>
             <CardBody>
-                <Text><WeatherDisplay /> </Text>
+                <Text color="white" ><WeatherDisplay /> </Text>
             </CardBody>
             <Divider borderColor='gray.200'></Divider>
             <CardFooter>
-                <Text>Advertisement</Text>
+                <Text textColor='white'>Advertisement</Text>
             </CardFooter>
         </Card>
     )
