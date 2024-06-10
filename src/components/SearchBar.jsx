@@ -1,20 +1,26 @@
-import { Box, Button, Center, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
+import { Search2Icon } from "@chakra-ui/icons";
+import { Box, Button, Center, Flex, Heading, Spacer, Text, IconButton, Input, HStack } from "@chakra-ui/react";
 import { wrap } from "framer-motion";
 
-export default function SearchBar() {
+export default function SearchBar({ location, onChange }) {
     return (
-        <Flex bg='#00b4d8' p={12} wrap={wrap} gap={2}>
-            <Heading>
-                <Flex justify='flex-start'>
-                    Logo
-                </Flex>
+        <Flex bg='#00b4d8' p={12} wrap={wrap} gap={2} h='10%' justify='center'>
+            <Heading bg='white' color='teal' >
+                <Text fontSize='50%'>The Weather Channel </Text>
             </Heading>
-            <Flex justify="center" flexGrow={1} borderRadius='10px' bg="gray" w='30%'>
-                <input
-                    placeholder="Search City or Zipcode"
-                />
-                <Button>Search</Button>
-            </Flex>
+            <Input
+                label='Search'
+                value={location}
+                onChange={onChange}
+                bg="white"
+                placeholder='Search City'
+                _placeholder={{ textAlign: 'center' }}
+                variant='filled'
+                borderRadius='15px'
+                color='white'
+                width="30%"
+            />
+            <IconButton color="teal" icon={<Search2Icon />} aria-label="Search" />
         </Flex>
     )
 }

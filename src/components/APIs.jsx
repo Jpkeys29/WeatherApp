@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Text } from 'react';
 
-function WeatherDisplay() {
-  const [location, setLocation] = useState('New York');
+function WeatherDisplay({location, setLocation}) {
   const [weatherData, setWeatherData] = useState([]);
+
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -27,17 +27,17 @@ function WeatherDisplay() {
     fetchWeatherData();
   }, [location]); // Re-fetch data when location changes
 
-  // if(!weatherData) {
-  //   return <p>Loading...</p>
-  // }
+  if (!weatherData) {
+    return <p>Loading...</p>
+  }
 
   return (
     <div>
-      <h2>{weatherData.location?.name}</h2>
+        {weatherData.location?.name}
       <h1>{weatherData.current?.feelslike_f}<sup>o</sup></h1>
-      <p>{weatherData.current?.condition.text} </p>
+      <h4>{weatherData.current?.condition.text} </h4>
       <h3>{weatherData && weatherData.location && weatherData.location.localtime}</h3>
-      <p>Wind: {weatherData && weatherData.current ? weatherData.current.wind_kph : null } mph </p>
+      <h6>Wind: {weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph </h6>
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
       {/* <h3>{weatherData && weatherData.current && weatherData.current.condition && weatherData.current.condition.text}</h3> */}

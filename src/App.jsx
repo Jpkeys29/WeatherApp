@@ -7,12 +7,16 @@ import WeatherCard from './components/WeatherCard'
 import { Box } from '@chakra-ui/react';
 
 function App() {
+  const [location, setLocation] = useState('New York');
 
+  function handleChange(e) {
+    setLocation(e.target.value);
+  }
   return (
     <>
-      <SearchBar />
+      <SearchBar value={location} onChange={handleChange}/>
       <MainContent>
-        <WeatherCard />
+        <WeatherCard location={location}/>
         <Forecast />
       </MainContent>
     </>
