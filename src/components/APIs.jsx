@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TableContainer, Table, Tbody, Td } from '@chakra-ui/react';
+import { Text, TableContainer, Table, Tbody, Td, Grid } from '@chakra-ui/react';
 
 function WeatherDisplay({ location, setLocation }) {
   const [weatherData, setWeatherData] = useState([]);
@@ -40,13 +40,15 @@ function WeatherDisplay({ location, setLocation }) {
 
       <TableContainer>
         <Table>
-          <Tbody style={{display:'flex', flexDirection:'column'}} fontSize="20px">
-            <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
-            <Td>Humidity: {weatherData.current?.humidity} %</Td>
-            <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
-            <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
-            <Td >Visibility: {weatherData.current?.vis_miles} miles</Td>
-            <Td >UV Index: {weatherData.current?.uv} </Td>
+          <Tbody fontSize="20px">
+            <Grid templateColumns='repeat(2, 1fr)'>
+              <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
+              <Td>Humidity: {weatherData.current?.humidity} %</Td>
+              <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
+              <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
+              <Td >Visibility: {weatherData.current?.vis_miles} miles</Td>
+              <Td >UV Index: {weatherData.current?.uv} </Td>
+            </Grid>
           </Tbody>
         </Table>
       </TableContainer>
