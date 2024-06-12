@@ -1,11 +1,12 @@
 import { Box, Card, CardHeader, CardBody, CardFooter, Divider, Center, Container, Text } from "@chakra-ui/react";
+import WeatherDisplay from "./APIs";
 
-export default function () {
+export default function Forecast({location}) {
     return (
         <Card bg='#00b4d8'textAlign='center' borderTop='8px'  borderColor='white' h='90vh'>
-            <CardHeader fontSize='40px' color='white'>Forecast</CardHeader>
+            <CardHeader fontSize='35px' color='white'>Details</CardHeader>
             <CardBody>
-                <Text fontSize='40px' color='white'></Text>
+                <WeatherDisplay location={location}/>
             </CardBody>
             <Divider borderColor='gray.200'></Divider>
             <CardFooter>

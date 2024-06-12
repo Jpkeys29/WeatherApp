@@ -1,6 +1,7 @@
-import React, { useState, useEffect, Text } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Text } from '@chakra-ui/react';
 
-function WeatherDisplay({location, setLocation}) {
+function WeatherDisplay({ location, setLocation }) {
   const [weatherData, setWeatherData] = useState([]);
 
 
@@ -33,11 +34,16 @@ function WeatherDisplay({location, setLocation}) {
 
   return (
     <div>
-        {weatherData.location?.name}
-      <h1>{weatherData.current?.feelslike_f}<sup>o</sup></h1>
-      <h4>{weatherData.current?.condition.text} </h4>
-      <h3>{weatherData && weatherData.location && weatherData.location.localtime}</h3>
-      <h6>Wind: {weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph </h6>
+      <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
+      <Text color='white' fontSize="60px" textAlign='center'>{weatherData.current?.feelslike_f}<sup>o</sup> </Text>
+      <Text color='white' fontSize="25px" textAlign='center'>{weatherData.current?.condition.text} </Text>
+      <Text>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Text>
+      <Text>Humidity: {weatherData.current?.humidity} %</Text>
+      <Text>Pressure: {weatherData.current?.pressure_in} in</Text>
+      <Text>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Text>
+      <Text>Visibility: {weatherData.current?.vis_miles} miles</Text>
+      <Text>UV Index: {weatherData.current?.uv} </Text>
+      {weatherData && weatherData.location && weatherData.location.localtime}
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
       {/* <h3>{weatherData && weatherData.current && weatherData.current.condition && weatherData.current.condition.text}</h3> */}
