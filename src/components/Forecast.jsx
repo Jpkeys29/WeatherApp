@@ -4,7 +4,7 @@ import WeatherDisplay from "./APIs";
 export default function Forecast({location}) {
     return (
         <Card bg='#00b4d8'textAlign='center' borderTop='8px'  borderColor='white' h='90vh'>
-            <CardHeader fontSize='35px' color='white'>Details</CardHeader>
+            <CardHeader fontSize='35px' color='white'>Weather in {location}</CardHeader>
             <CardBody>
                 <WeatherDisplay location={location}/>
             </CardBody>

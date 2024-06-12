@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text } from '@chakra-ui/react';
+import { Text, TableContainer, Table, Tbody, Td } from '@chakra-ui/react';
 
 function WeatherDisplay({ location, setLocation }) {
   const [weatherData, setWeatherData] = useState([]);
@@ -37,12 +37,19 @@ function WeatherDisplay({ location, setLocation }) {
       <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
       <Text color='white' fontSize="60px" textAlign='center'>{weatherData.current?.feelslike_f}<sup>o</sup> </Text>
       <Text color='white' fontSize="25px" textAlign='center'>{weatherData.current?.condition.text} </Text>
-      <Text>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Text>
-      <Text>Humidity: {weatherData.current?.humidity} %</Text>
-      <Text>Pressure: {weatherData.current?.pressure_in} in</Text>
-      <Text>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Text>
-      <Text>Visibility: {weatherData.current?.vis_miles} miles</Text>
-      <Text>UV Index: {weatherData.current?.uv} </Text>
+
+      <TableContainer>
+        <Table>
+          <Tbody style={{display:'flex', flexDirection:'column'}} fontSize="20px">
+            <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
+            <Td>Humidity: {weatherData.current?.humidity} %</Td>
+            <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
+            <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
+            <Td >Visibility: {weatherData.current?.vis_miles} miles</Td>
+            <Td >UV Index: {weatherData.current?.uv} </Td>
+          </Tbody>
+        </Table>
+      </TableContainer>
       {weatherData && weatherData.location && weatherData.location.localtime}
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
