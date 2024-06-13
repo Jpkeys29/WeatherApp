@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon } from '@chakra-ui/react';
-import { MdSettings } from 'react-icons/md';
+import { FaBolt, FaSun, FaWind, FaWater, FaEye } from 'react-icons/fa';
 import moment from 'moment';
 
 function WeatherDisplay({ location, setLocation }) {
@@ -51,12 +51,12 @@ function WeatherDisplay({ location, setLocation }) {
           <Tbody fontSize="20px">
             <Tr>
               <Grid templateColumns='repeat(2, 1fr)'>
-                <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
-                <Td>Humidity: {weatherData.current?.humidity} %</Td>
+                <Td><Icon as={FaBolt}/> Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
+                <Td><Icon as={FaWater} /> Humidity: {weatherData.current?.humidity} %</Td>
                 <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
-                <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
-                <Td>Visibility: {weatherData.current?.vis_miles} miles</Td>
-                <Td >UV Index: {weatherData.current?.uv} </Td>
+                <Td><Icon as={FaWind}/>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
+                <Td><Icon as={FaEye} /> Visibility: {weatherData.current?.vis_miles} miles</Td>
+                <Td><Icon as={FaSun} />UV Index: {weatherData.current?.uv} </Td>
               </Grid>
             </Tr>
           </Tbody>
