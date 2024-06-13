@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TableContainer, Table, Tbody, Td, Grid } from '@chakra-ui/react';
+import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon } from '@chakra-ui/react';
+import { MdSettings } from 'react-icons/md';
+import moment from 'moment';
 
 function WeatherDisplay({ location, setLocation }) {
   const [weatherData, setWeatherData] = useState([]);
@@ -32,6 +34,12 @@ function WeatherDisplay({ location, setLocation }) {
     return <p>Loading...</p>
   }
 
+  const dateData = weatherData.current?.last_updated;
+  const dateTime = moment(dateData);
+  const dayOfWeek = dateTime.format('dddd');
+  const monthName = dateTime.format('MMMM');
+  const dayNumber = dateTime.format('D');
+
   return (
     <div>
       <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
@@ -41,22 +49,25 @@ function WeatherDisplay({ location, setLocation }) {
       <TableContainer>
         <Table>
           <Tbody fontSize="20px">
-            <Grid templateColumns='repeat(2, 1fr)'>
-              <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
-              <Td>Humidity: {weatherData.current?.humidity} %</Td>
-              <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
-              <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
-              <Td >Visibility: {weatherData.current?.vis_miles} miles</Td>
-              <Td >UV Index: {weatherData.current?.uv} </Td>
-            </Grid>
+            <Tr>
+              <Grid templateColumns='repeat(2, 1fr)'>
+                <Td>Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
+                <Td>Humidity: {weatherData.current?.humidity} %</Td>
+                <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
+                <Td>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
+                <Td>Visibility: {weatherData.current?.vis_miles} miles</Td>
+                <Td >UV Index: {weatherData.current?.uv} </Td>
+              </Grid>
+            </Tr>
           </Tbody>
         </Table>
       </TableContainer>
-      {weatherData && weatherData.location && weatherData.location.localtime}
+      {dayOfWeek} {monthName} {dayNumber}
+      {/* {weatherData && weatherData.location && weatherData.location.localtime} */}
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
       {/* <h3>{weatherData && weatherData.current && weatherData.current.condition && weatherData.current.condition.text}</h3> */}
-    </div>
+    </div >
   );
 }
 
