@@ -20,7 +20,7 @@ export default function SearchBar({ location, onChange }) {
                 color='white'
                 width="30%"
             />
-            <IconButton color="teal" icon={<Search2Icon />} aria-label="Search" />
+            <Button onClick={() => onChange} icon={<Search2Icon />}><IconButton icon={<Search2Icon/>} aria-label="Search"/></Button>
         </Flex>
     )
 }
