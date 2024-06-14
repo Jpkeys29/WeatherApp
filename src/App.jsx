@@ -17,7 +17,7 @@ function App() {
       <SearchBar value={location} onChange={handleChange}/>
       <MainContent>
         <WeatherCard location={location}/>
-        <Forecast />
+        {/* <Forecast /> */}
       </MainContent>
     </>
   )

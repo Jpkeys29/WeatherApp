@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon } from '@chakra-ui/react';
+import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon, Box, Divider } from '@chakra-ui/react';
 import { FaBolt, FaSun, FaWind, FaWater, FaEye } from 'react-icons/fa';
 import moment from 'moment';
 
@@ -41,7 +41,11 @@ function WeatherDisplay({ location, setLocation }) {
   const dayNumber = dateTime.format('D');
 
   return (
-    <div>
+    <Box>
+       
+      <Text textAlign="left" color='white' fontSize="25px">{dayOfWeek} {monthName}  {dayNumber} </Text>
+      <Divider borderColor='gray.200'></Divider>
+
       <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
       <Text color='white' fontSize="60px" textAlign='center'>{weatherData.current?.feelslike_f}<sup>o</sup> </Text>
       <Text color='white' fontSize="25px" textAlign='center'>{weatherData.current?.condition.text} </Text>
@@ -62,12 +66,11 @@ function WeatherDisplay({ location, setLocation }) {
           </Tbody>
         </Table>
       </TableContainer>
-      {dayOfWeek} {monthName} {dayNumber}
       {/* {weatherData && weatherData.location && weatherData.location.localtime} */}
       {/* <h3>{weatherData && weatherData.location ? weatherData.location.name : null}</h3> */}
       {/* <h2>{weatherData && weatherData.location && weatherData.location.name}</h2> */}
       {/* <h3>{weatherData && weatherData.current && weatherData.current.condition && weatherData.current.condition.text}</h3> */}
-    </div >
+    </Box >
   );
 }
 

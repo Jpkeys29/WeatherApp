@@ -4,10 +4,10 @@ import WeatherDisplay from './APIs';
 
 export default function WeatherCard({location}) {
     return (
-        <Card bg='#00b4d8' borderTop='8px' borderColor='white' h='90vh'>
-            <CardHeader textAlign='center'>
+        <Card bg='#00b4d8' borderTop='8px' borderColor='white' h='90vh' width="60%">
+            {/* <CardHeader textAlign='center'>
                 <Text fontSize='35px' color='white'>Today</Text>
-            </CardHeader>
+            </CardHeader> */}
             <CardBody>
                 <WeatherDisplay location={location}/>
             </CardBody>
