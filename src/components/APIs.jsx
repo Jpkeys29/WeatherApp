@@ -42,23 +42,23 @@ function WeatherDisplay({ location, setLocation }) {
 
   return (
     <Box>
-       
-      <Text textAlign="left" color='white' fontSize="25px">{dayOfWeek} {monthName}  {dayNumber} </Text>
+      <Text textAlign="left" color='white' fontSize="25px" p={3}>{dayOfWeek} {monthName}  {dayNumber} </Text>
       <Divider borderColor='gray.200'></Divider>
+      <Box p={5} paddingBottom={20}>
+        <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
+        <Text color='white' fontSize="65px" textAlign='center'>{weatherData.current?.feelslike_f}<sup>o</sup> </Text>
+        <Text color='white' fontSize="25px" textAlign='center'>{weatherData.current?.condition.text} </Text>
+      </Box>
 
-      <Text color='white' fontSize="35px" textAlign='center'>{weatherData.location?.name}</Text>
-      <Text color='white' fontSize="60px" textAlign='center'>{weatherData.current?.feelslike_f}<sup>o</sup> </Text>
-      <Text color='white' fontSize="25px" textAlign='center'>{weatherData.current?.condition.text} </Text>
-
-      <TableContainer>
+      <TableContainer paddingTop={5}>
         <Table>
           <Tbody fontSize="20px">
             <Tr>
               <Grid templateColumns='repeat(2, 1fr)'>
-                <Td><Icon as={FaBolt}/> Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
+                <Td><Icon as={FaBolt} /> Dew Point: {weatherData.current?.dewpoint_f}<sup>o</sup> </Td>
                 <Td><Icon as={FaWater} /> Humidity: {weatherData.current?.humidity} %</Td>
                 <Td>Pressure: {weatherData.current?.pressure_in} in</Td>
-                <Td><Icon as={FaWind}/>Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
+                <Td><Icon as={FaWind} />Wind:{weatherData && weatherData.current ? weatherData.current.wind_kph : null} mph</Td>
                 <Td><Icon as={FaEye} /> Visibility: {weatherData.current?.vis_miles} miles</Td>
                 <Td><Icon as={FaSun} />UV Index: {weatherData.current?.uv} </Td>
               </Grid>

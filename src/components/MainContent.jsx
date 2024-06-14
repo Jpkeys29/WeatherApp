@@ -3,7 +3,7 @@ import { wrap } from "framer-motion";
 
 export default function MainContent({ children }) {
     return (
-        <Box  p={20} bg='#80daea' justify='center' align="center">
+        <Box  p={17} bg='#80daea' justify='center' align="center">
             {children}
         </Box>
     )
