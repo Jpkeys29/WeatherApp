@@ -30,8 +30,7 @@ function WeatherDisplay({ location, setLocation }) {
     fetchWeatherData();
   }, [location]); // Re-fetch data when location changes
   
-  const WeatherDataDebounced = useDebounce(setWeatherData, 400)
-
+  const weatherDataDebounced = useDebounce(setWeatherData, 400)
 
   if (!weatherData) {
     return <p>Loading...</p>
@@ -42,8 +41,6 @@ function WeatherDisplay({ location, setLocation }) {
   const dayOfWeek = dateTime.format('dddd');
   const monthName = dateTime.format('MMMM');
   const dayNumber = dateTime.format('D');
-
-
 
   return (
     <Box>
@@ -80,3 +77,6 @@ function WeatherDisplay({ location, setLocation }) {
 }
 
 export default WeatherDisplay;
+
+
+
