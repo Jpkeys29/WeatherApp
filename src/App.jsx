@@ -5,6 +5,8 @@ import MainContent from './components/MainContent'
 import SearchBar from './components/SearchBar'
 import WeatherCard from './components/WeatherCard'
 import { Box } from '@chakra-ui/react';
+import useDebounce from './components/useDebounce';
+
 
 function App() {
   const [location, setLocation] = useState('New York');
@@ -12,12 +14,12 @@ function App() {
   function handleChange(e) {
     setLocation(e.target.value);
   }
+
   return (
     <>
       <SearchBar value={location} onChange={handleChange}/>
       <MainContent>
         <WeatherCard location={location}/>
-        {/* <Forecast /> */}
       </MainContent>
     </>
   )
