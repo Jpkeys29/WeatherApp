@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon, Box, Divider } from '@chakra-ui/react';
 import { FaBolt, FaSun, FaWind, FaWater, FaEye } from 'react-icons/fa';
 import moment from 'moment';
-import useDebounce from './useDebounce';
 
 function WeatherDisplay({ location, setLocation }) {
   const [weatherData, setWeatherData] = useState([]);
@@ -30,8 +29,6 @@ function WeatherDisplay({ location, setLocation }) {
     fetchWeatherData();
   }, [location]); // Re-fetch data when location changes
   
-  const weatherDataDebounced = useDebounce(setWeatherData, 400)
-
   if (!weatherData) {
     return <p>Loading...</p>
   }
