@@ -1,8 +1,8 @@
 // import Fetch from '../components/Fetch';
 import { Box, Text, Center, Container, Heading, Card, CardHeader, CardBody, CardFooter, Divider } from '@chakra-ui/react';
-import WeatherDisplay from './APIs';
+import { WeatherDisplay } from './APIs';
 
-export default function WeatherCard({location}) {
+export const WeatherCard = ({location}) => {
     return (
         <Card bg='#00b4d8' borderTop='8px' borderColor='white' h='85vh' width="60%">
             {/* <CardHeader textAlign='center'>

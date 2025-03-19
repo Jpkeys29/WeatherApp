@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Text, TableContainer, Table, Tbody, Td, Grid, Tr, Icon, Box, Divider } from '@chakra-ui/react';
 import { FaBolt, FaSun, FaWind, FaWater, FaEye } from 'react-icons/fa';
 import moment from 'moment';
+import { Debounce } from './Debounce';
 
-function WeatherDisplay({ location, setLocation }) {
+export const WeatherDisplay = ({ location, setLocation }) => {
   const [weatherData, setWeatherData] = useState([]);
 
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        // Check if location has a value before fetching data
         if (!location) {
-          return; // Avoid unnecessary API calls if location is empty
+          return; 
         }
-        const apiUrl = (`http://api.weatherapi.com/v1/current.json?key=3da3dfd986734b34884171856242405&q=${location}&aqi=no`);
+        const apiUrl = (`http://api.weatherapi.com/v1/current.json?key= =${location}&aqi=no`);
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
@@ -73,7 +73,6 @@ function WeatherDisplay({ location, setLocation }) {
   );
 }
 
-export default WeatherDisplay;
 
 
 
